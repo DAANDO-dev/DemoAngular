@@ -1,0 +1,25 @@
+<h2>Strings</h2>
+<p>Affichage brut: {{ chain }}</p>
+<p>Affichage en majuscule: {{ chain | uppercase}}</p>
+<p>Affichage en majuscule: {{ chain | lowercase}}</p>
+<p>Affichage en titre: {{ chain | titlecase}}</p>
+
+<h2>Nombres</h2>
+<p>Affichage du nombre: {{ nombre}}</p>
+<p>Affichage formaté: {{ nombre | number : '00000.2-3' }}</p>
+
+<h2>Dates</h2>
+<p>Affichage brut: {{ date }}</p>
+<p>Affichage formaté: {{ date | date : 'le dd MMM yyyy' : undefined: 'fr-BE'}}</p>
+<p>Affichage formaté: {{ date | date : 'dd/MM/yyyy' }} </p>
+
+
+<h2>LOOPing</h2>
+@for (item of tableau; track $index) {
+    <p>{{ item }}</p>
+}
+
+<h2>Custom Pipes</h2>
+@for (item of tableau | sliceArray : 2; track $index) {
+    <p>{{ item }}</p>
+}

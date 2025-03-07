@@ -1,0 +1,14 @@
+<h2>{{ seconds }}</h2>
+<div class="buttons">
+    <button [disabled]="intervalId" (click)="start()">Start</button>
+    <button [disabled]="!intervalId" (click)="stop()">Stop</button>
+    <button [disabled]="seconds == 0" (click)="reset()">Reset</button>
+</div>
+
+@if (showConfirmBox){
+    <app-confirm-box
+    (onResponse)="confirmReset($event)" 
+    message="Voulez vouz vraiment réinitializer les choro ?"></app-confirm-box>
+    
+
+}

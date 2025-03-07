@@ -1,0 +1,85 @@
+ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5em 0;
+  }
+
+button {
+    background-color: rgb(0, 255, 136);
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.25em 0.5em;
+}
+button:hover {
+    background-color: darkred;
+  }
+
+  .suprimer {
+    display: flex;
+    align-items: center;
+  }
+
+  .suprimer input[type="checkbox"] {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    appearance: none;
+    background-color: #fff;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+
+  .suprimer input[type="checkbox"]::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border: 2px solid #fff;
+    border-top: none;
+    border-right: none;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    transition: width 0.2s, height 0.2s;
+    opacity: 0;
+  }
+
+  .suprimer input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+  }
+
+  .suprimer input[type="checkbox"]:checked::before {
+    width: 12px;
+    height: 6px;
+    opacity: 1;
+  }
+
+  .suprimer input[type="checkbox"]:hover {
+    border-color: #388E3C;
+  }
+
+  .error-message {
+    color: #ff3860; /* Bright red color for the text */
+    background-color: #ffe6e6; /* Light red background for better visibility */
+    border: 1px solid #ff3860; /* Matching border color */
+    border-radius: 5px; /* Rounded corners for a softer look */
+    padding: 10px; /* Some padding for better spacing */
+    margin: 10px 0; /* Margins to separate the error message from other content */
+    font-size: 1.2em; /* Slightly larger font size for emphasis */
+    font-weight: bold; /* Bold text for importance */
+    box-shadow: 0 0 5px rgba(255, 0, 0, 0.5); /* Subtle shadow for a touch of depth */
+  }
+  
+
+
+
