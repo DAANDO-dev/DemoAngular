@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule, NgModel } from '@angular/forms';
 import { ArticleModel } from '../../models/article.model';
 import { CommonModule } from '@angular/common';
 import { ConfirmBoxComponent } from '../confirm-box/confirm-box.component';
 import { count, isEmpty } from 'rxjs';
+import { ListCourseService } from '../../services/list-course.service';
 
 @Component({
   selector: 'app-to-add-products',
@@ -12,10 +13,10 @@ import { count, isEmpty } from 'rxjs';
   styleUrl: './to-add-products.component.scss'
 })
 export class ProductsComponent {
-  products: Array<ArticleModel> = [];
   text: string = '';
   checkbox: boolean = false;
   error: string|null = null;
+  listCourseService = inject(ListCourseService);
   
   addproduct(){
     this.error = null;
@@ -23,14 +24,19 @@ export class ProductsComponent {
       this.error = "Remplir le champs"
         return;
     }
-    this.products.push({ nom: this.text, important: this.checkbox, showConfirmBox: false })
+    this.listCourseService.add({
+       nom: this.text.trim(),
+        important: this.checkbox,
+         showConfirmBox: false 
+        })
     this.text = '';
   }
 
   deleteProduct(ok: boolean, index: number) {
-    this.products[index].showConfirmBox = false;
+    //this.products[index].showConfirmBox = false;
     if(ok) {
-      this.products.splice(index, 1);
+      this.listCourseService.delete(index)
+      // this.products.
     }
   
   }

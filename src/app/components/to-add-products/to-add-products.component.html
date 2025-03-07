@@ -6,27 +6,19 @@
      @if(error) {
         <p class="error-message">{{error}}</p>
      }
-    <div>
-        <button class="addProduct" type="submit" (click)="addproduct()" >➕</button>
-    </div>
+
     <div class="suprimer">
+        <button class="addProduct" type="submit" (click)="addproduct()" >➕</button>
         <input type="checkbox"
         [(ngModel)]="checkbox">
     </div>
-    <div>
-        <!-- @if (showConfirmBox){
-            <app-confirm-box
-            (onResponse)="confirmReset($event)" 
-            message="Voulez vouz vraiment réinitializer les choro ?"></app-confirm-box> -->
-    </div>
 
-    
     <ul>
-        @for (item of products; track $index) {
+        @for (item of listCourseService.list(); track $index) {
             <li>
                 {{item.nom}}
                  @if(item.important){<span>🚩</span>}
-                 <button (click)="item.showConfirmBox = true">Delete</button> 
+                 <button (click)="item.showConfirmBox = true">🗑</button> 
             </li>
 
             @if(item.showConfirmBox) {
